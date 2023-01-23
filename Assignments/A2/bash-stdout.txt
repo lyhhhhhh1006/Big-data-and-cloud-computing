@@ -1,0 +1,4 @@
+Average weight for smoking mothers is:
+3204
+Average weight for non-smoking mothers is:
+3459

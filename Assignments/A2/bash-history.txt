@@ -1,0 +1,20 @@
+    1  awk -F ',' '(NR==1){ print $0}'  NCBirths2004.csv > headers.txt
+    2  awk -F ',' '(NR==1 || $8=="Yes"){ print $0}'  NCBirths2004.csv | cut -f 6 -d ',' | sort  -n | awk ' { a[i++]=$1; } END { print a[int(i/2)]; }' > smoker-yes-med.txt
+    3  echo 'Average weight for smoking mothers is:'
+    4  cat smoker-yes-med.txt
+    5  awk -F ',' '(NR==1 || $8=="No"){print $0}'  NCBirths2004.csv | cut -f 6 -d ',' | sort  -n | awk ' { a[i++]=$1; } END { print a[int(i/2)]; }' > smoker-no-med.txt
+    6  echo 'Average weight for non-smoking mothers is:'
+    7  cat smoker-no-med.txt
+    8  history | cut -c 8- > data-script.bash
+    9  bash data-script.bash > bash-stdout.txt
+   10  history | cut -c 8- > data-script.bash
+   11  #According to the median baby weight for smoking and non-smoking mothers, it can be observed that mothers who don't smoke are more likely to have heavier babies.
+   12  awk -F ',' '(NR==1 || $4=="Yes"){ print $0}'  NCBirths2004.csv > alcoholyes.csv
+   13  awk -F ',' 'NR==1 {next} { total += $6 } END { print total/(NR-1) }' alcoholyes.csv > alcohol-yes-avg.txt
+   14  echo 'Average weight of babies for drinking mothers is:'
+   15  cat alcohol-yes-avg.txt
+   16  awk -F ',' '(NR==1 || $4=="No"){ print $0}'  NCBirths2004.csv > alcoholno.csv
+   17  awk -F ',' 'NR==1 {next} { total += $6 } END { print total/(NR-1) }' alcoholno.csv > alcohol-no-avg.txt
+   18  echo 'Average weight of babies for non-drinking mothers is:'
+   19  cat alcohol-no-avg.txt
+   20  history > bash-history.txt
