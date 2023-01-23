@@ -1,0 +1,1 @@
+For this question, we are supposed to filter all of the records which have outputs with -1 of all four measurements. There is no aggregation involved in it. Thus, it is a map only job, no need for reducers.
