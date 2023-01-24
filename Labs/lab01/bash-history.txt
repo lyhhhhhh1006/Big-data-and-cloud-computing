@@ -1,0 +1,39 @@
+  589  cd /Users/yihuiliu_/Desktop/502BigData/fall-2022-lab01_-lyhhhhhh1006/test-environment
+  590  mkdir docs
+  591  mkdir models
+  592  mkdir data
+  593  mkdir src
+  594  mkdir temp
+  595  rm *old*.*
+  596  rm *DELETE*.*
+  597  ls
+  598  ls -1 | wc -l > temp-numfiles.txt
+  599  mv temp*.* temp
+  600  cd data
+  601  mkdir input output
+  602  cd ../
+  603  mv in*.csv data/input
+  604  mv out*.csv data/output
+  605  mv *.onyx models
+  606  mv *.md docs
+  607  cd src
+  608  mkdir notebooks scripts
+  609  cd ../
+  610  mv *.ipynb src/notebooks
+  611  mv *.py src/scripts
+  612  ls
+  613  brew install tree
+  614  tree -d
+  615  ls -ltr
+  616  find . -type f -exec basename {} \;
+  617  git status
+  618  git add
+  619  git add --all
+  620  git commit -m "final-submission"
+  621  git push
+  622  git push
+  623  git pull
+  624  history > bash-history.txt
+  625  rm bash-history.txt
+  626  cd ../
+  627  history > bash-history.txt
