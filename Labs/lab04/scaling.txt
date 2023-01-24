@@ -1,0 +1,1 @@
+After I re-sized the cluster, it can be observed that the job was running faster and there are more reducer processes. And I can found more output files in my S3 bucket than HDFS.
