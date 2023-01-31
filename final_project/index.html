@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Reddit Analysis - Anly 502 Group Project</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+    <a href="#home" class="w3-bar-item w3-button">Reddit Analysis - Anly 502 Group Project</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#about" class="w3-bar-item w3-button">About</a>
+      <a href="#eda" class="w3-bar-item w3-button">EDA</a>
+      <a href="#nlp" class="w3-bar-item w3-button">NLP</a>
+      <a href="#ml" class="w3-bar-item w3-button">Machine Learning</a>
+      <a href="#conclusion" class="w3-bar-item w3-button">Conclusion</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+  <img class="w3-image" src="https://qinren.georgetown.domains/Reddit-Analysis/image/1.jpg" alt="Hamburger Catering" width="1600" height="800">
+  <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+    <h1 class="w3-large">Group Member:Qinren Zhou, Yihui Liu, Yutong Du, Ziqiu Shao
+                              </h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px">
+
+  <!-- About Section -->
+  <div class="w3-row w3-padding-64" id="about">
+
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/2.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>  
+    <br>     
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/intro11.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750"> 
+    <br>
+    <br>
+    <br>      
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/intro22.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+    <br>
+    <br>
+    <br> 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/intro3.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">Introduction</h1><br>
+      <h5 class="w3-center">About the Project</h5>
+
+      <p class="w3-large w3-text-grey w3-hide-medium">Dating has always been a hot topic in our daily lives, and it has been an irreversible trend that more and more people are using dating apps nowadays. So, what are the determining factors in deciding whether people go on a date or use a dating app? Can we find the answers we want in people's advice about dating? </p>
+
+      <p class="w3-large w3-text-grey w3-hide-medium">This Project aims to use Reddit data to solve problems related to ‘Dating’ by analyzing both text data and numerical data using machine learning and natural language processing methods. We will take both user and platform perspectives, not only to help users better seek 'answers' about dating, but also to try to help the platform find better ways to maintain the environment. </p>
+      
+     <p class="w3-large w3-text-grey w3-hide-medium"> This Project aims to use Reddit data to solve problems related to ‘Dating’ by analyzing both text data and numerical data using machine learning and natural language processing methods. We will take both user and platform perspectives, not only to help users better seek 'answers' about dating, but also to try to help the platform find better ways to maintain the environment. </p>  
+
+      <h5 class="w3-center">10 Business Goals</h5>
+      <p class="w3-large"><li> <span class="w3-tag w3-light-grey"><b>1: What is the most popular dating APP?</b></span></li>
+Use NLP to identify the posts that mentioned one and more than one dating apps. Conduct sentiment analysis of the posts to assign positive or negative values to the dating apps mentioned in posts. Present the findings for the sentiment analysis for the top 3 popular dating apps.
+<li> <span class="w3-tag w3-light-grey"><b>2: What kind of dating/relationship is the most popular nowadays?</b></span></li>
+Utilize NLP to do the topic popularity calculation: Weighting the words with the hotness of the main posts, and the heat of the main post will take into account the following factors like the number of subreddits, score, time of the publication (The longer the release time, the higher the heat decay). Using Wordcloud to show the hottest words among the selected subreddits and extract key words to determine which types of dates are most popular. Age and gender factors can also be considered to categorize the study.
+<li> <span class="w3-tag w3-light-grey"><b>3: What is the sentiment composition of the posts in the subreddit and in each topic?</b></span></li>
+Visualize the pattern of text length of the comment data. Conduct the distribution of the length of text. Present text length of the most comments and the characteristic of reddit.
+<li> <span class="w3-tag w3-light-grey"><b>4: How are the scores of the posts/comments related to topics and sentiments?</b></span></li>
+Use NLP to identify the posts and comments and vectorize the dataset. Create a pipeline for sentiment analysis based on SparkNLP. Plot to demonstrate the difference of the distributions by sentiment and the score.
+<li> <span class="w3-tag w3-light-grey"><b>5: How does people's attention about relationship health change over time?</b></span></li>
+Leverage Time series analysis to help understanding the underlying attention patterns of relationship over time. Using data visualizations, we want to see seasonal trends and year deviation and dig deeper into why these trends occur. When analyzing data over consistent intervals, we try to use time series forecasting to predict the likelihood of future dating events.
+<li> <span class="w3-tag w3-light-grey"><b>6: What is the difference between men's interest about women and women's interest about men?</b></span></li>
+Use NLP to collect and tokenize the submission with the most comment posts in "Ask Man" and "Ask Women" subreddit seperately. Conduct sentiment analysis of the submission to assign positive or negative values to questions redditors asked. Present top 10 positive and negative submission. Make the same process on comment part and compare the difference between men’s aspect and women’s aspect.
+<li> <span class="w3-tag w3-light-grey"><b>7: Which variables will have an impact on the submission score? what is the relationship between score and controversies?</b></span></li>
+Use NLP to transform string variables to numbers and assemble feature vectors. Build up a pipeline to transform all data. Use Linear Regression to predict score with feature selecting and tuning the model.
+<li> <span class="w3-tag w3-light-grey"><b>8: How does the popularity of posts distribute?</b></span></li>
+Visualize the distribution of the scores of posts. Conduct the highest frequency of the posts score. Present the findings of maximum and minimum value.
+<li> <span class="w3-tag w3-light-grey"><b>9: which age group use online dating app the most?</b></span></li>
+Generate the distribution plot for each age group using created_utc which stands for the utc timestamp of the post time of the main post.
+Conduct statistical analysis for respondents from different age groups. Present sorted count for reddit users who have been using dating apps.
+<li> <span class="w3-tag w3-light-grey"><b>10: While talking about dating advices, which are the most frequent words?</b></span></li>
+Utilize NLP for word association calculation to examine the association between words by calculating the probability of simultaneous occurrence of words in subreddit. For example, the most associated word in a dinner date may be the most important suggestion in a dinner date. Can also use Association Rule Mining to calculate the relationship between words.
+          
+         
+    </div>
+  </div>
+  
+  <hr>
+  
+  <!-- EDA Section -->
+  <div class="w3-row w3-padding-64" id="eda">
+
+    <div class="w3-col l6 w3-padding-large">
+      <h1 class="w3-center">EDA</h1><br>
+
+      <h5 class="w3-center"><a href="https://github.com/gu-anly502/fall-2022-project-eda-adb-project-group-8/blob/main/project_eda.ipynb">&#128279; The EDA Python Code</a></h5> 
+      <h5 class="w3-center"><a href="https://www.kaggle.com/datasets/sidharthkriplani/datingappreviews">&#128279; Link of the External Data</a></h5> 
+
+      <p class="w3-large"><b>1. Basic Info about Dataset</b>
+      <p class="w3-large w3-text-grey w3-hide-medium">IFor the raw datasets, there are two folders comments and submissions in parquet format, they were read into separate Spark dataframes to do following analysis. After doing some basic data cleaning such as changing data types, dropping useless or overlapped columns and renamed columns, submissions and comments datasets are updated. `comments_final` dataset contains 14 columns and 4473556762 rows in total while `subumissions_final` dataset contains 16 columns and 633922939 rows. `num_comments` represents the number of comments associated with this submission, `score` represents the score of submission and is the number of upvotes minus the number of downvotes, `comment_score` represents the score of comments, and `controversiality` represents number that indicates whether the comment is controversial. Those four variables show how popular the submissions and comments are. In addition, `created_utc` refers to the timestamp of the submission’s creation, `over_18` indicates whether the submission is Not-Safe-For-Work.</p>
+    </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <div class="w3-col l6 w3-padding-large">
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/eda9.jpg" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>
+  </div>
+  
+  
+  
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col l6 w3-padding-large">
+      <p class="w3-large"><b>2. Basic Data Quality Check</b>
+      <p class="w3-large w3-text-grey w3-hide-medium">For "controversiality", we can see that the count of controversial comments is obviously less than that of uncontroversial comments, and controversial comments have smaller mean scores but less standard deviation. This means the scores are more intensive than less controversial ones.  The variable over_18 is a flag that indicates whether the submission is Not-Safe-For-Work. From this table, we can see that the count of over_18 submissions is less than that of not over 18 submissions, and over 18 have smaller mean scores but less standard deviation. This means the scores are more intensive to those over 18 submissions.</p>
+    </div>
+<br>
+<br>
+    <div class="w3-col l6 w3-padding-large">
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/eda1.png" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>    
+  </div>
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col l6 w3-padding-large">
+        
+      <p class="w3-large"><b>3. Interesting Graphs about Dataset</b>
+
+      <h5 class="w3-center"><a href="https://qinren.georgetown.domains/Reddit-Analysis/images.html">&#128279; Zoom in for Larger Images</a></h5>      
+      
+      <p class="w3-large w3-text-grey w3-hide-medium">The change of the number of people discussing dating apps over time is shown in the graph on the right side. In general, “Tinder” seems to be the favorite dating app people would like to talk about, however,  “Hinge” has the lowest hotness. According to the trend from 2021-01 till present, it shows that on 2022-01, Reddit users were busy discussing dating apps a lot, especially the “Tinder” app. People paid more and more attention to dating apps from 2021-06 to 2022-01, one of the possible reasons is that during the pandemic, people preferred using online apps to meet new friends rather than just do it in person.</p>
+    </div>
+<br>
+<br>
+    <div class="w3-col l6 w3-padding-large">
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/eda2.png" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>    
+  </div>
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col l6 w3-padding-large">
+      <p class="w3-large w3-text-grey w3-hide-medium">This figure shows the change of number of posts and comments as well as the trend of scores those posts and comments got in a week. It can be observed that Tuesday's and Friday's comments have the highest scores, so do main posts created on Mondays and Wednesdays. For the total counts, Reddit users are more likely to post their opinions on Tuesdays and Wednesdays, and comment posts on Tuesdays and Thursdays. Therefore, in general, Reddit has the largest active user group on Tuesdays, it is probably because users have already gotten tired of work or study and want to have a break surfing on Reddit.</p>
+    </div>
+<br>
+<br>
+    <div class="w3-col l6 w3-padding-large">
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/eda3.png" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>    
+  </div>
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col l6 w3-padding-large">
+      <p class="w3-large w3-text-grey w3-hide-medium">The chart on the right shows the distribution of the number of comments with different scores of both over_18 submission and not over_18. From the chart, we discovered that the not over_18 submissions  with higher scores are more likely to have more comments, but this phenomenon is not adapted in those over_18. It might be related to the difference of total number of the comments between submissions with extra protections and without extra submissions. The submissions without over_18 restriction get access to be read by more users, therefore it might have more comments as well as get a higher score. </p>
+    </div>
+<br>
+<br>
+    <div class="w3-col l6 w3-padding-large">
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/eda4.png" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>    
+  </div>
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col l6 w3-padding-large">
+      <p class="w3-large w3-text-grey w3-hide-medium">The Age & Score boxplot shows the distribution of the score of both submissions and comments in different age groups. Based on the plot, both submissions and comments in the thirty age group have relatively high scores, and those posts in the fifty age group have relatively low scores. It can be concluded that those high score comments and submissions get relatively more upvotes and relatively less downvotes. That makes sense because people in the thirty age group who are younger than those in the forty and fifty age group are more likely to have advanced ideas which are more popular and catch up with the trend of the times.  </p>
+    </div>
+
+    <div class="w3-col l6 w3-padding-large">
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/eda5.png" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>    
+  </div>
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col l6 w3-padding-large">
+      <p class="w3-large"><b>4. External Dataset </b>
+      <p class="w3-large w3-text-grey w3-hide-medium">Despite the comments and submissions dataset, this project also gets an external dataset which is the appreview_df, containing the reviews and ratings for popular dating apps. The data is from 2017-2022 and the author acquired the data using google play scraper from google play store online. The wordcloud shows words with high frequency in this dataset. Words like "app", "dating", and "culture" show up often in these posts. </p>
+    </div>
+<br>
+<br>
+    <div class="w3-col l6 w3-padding-large">
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/eda6.png" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>    
+  </div>
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col l6 w3-padding-large">
+      <h5 class="w3-center"><b>EDA Summary</b></h5>
+      <h5 class="w3-center"><a href="https://qinren.georgetown.domains/Reddit-Analysis/images1.html">&#128279; Zoom in for Larger Images</a></h5>  
+      <p class="w3-large w3-text-grey w3-hide-medium">Now we have the dataset of reddit comments of subreddits "relationship advice", “datingadvice”, “datingoverthirty”, “datingoverforty” and “datingoverfifty”, which contain 18261900 rows in total. We have two important numbers here: "score" and "num_comments". "Score" is the comprehensive rating of a comment, while "num_comments" refers to the total counts of  comments. They both show how popular a comment or a main post is. This part will focus on the how does "score" vary with other data, such as "over_18", which refers to whether the content of comments is age sensitive, which means if the post or comment can be viewed by teenagers; "controversiality", which represents whether the comment is identified as controversial, the time lag between the comments and their main posts, and the specific time or day of the posts. </p>
+    </div>
+<br>
+<br>
+<br>
+    <div class="w3-col l6 w3-padding-large">
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/eda7.png" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>    
+  </div>
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col l6 w3-padding-large">
+      <p class="w3-large w3-text-grey w3-hide-medium">The summary table shows the statistics summary of the score that the submission has accumulated, as well as the number of comments. We can see the range of score is very large, the min value is 0 and max value is up to 18905, but the mean score is only 52.8. And the same phenomenon applies to the number of comments. This means that though most comments did not call much attention, several did receive vast amounts of upvotes and comments.</p>
+    </div>
+
+    <div class="w3-col l6 w3-padding-large">
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/eda8.png" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>    
+  </div>
+
+
+
+  <hr>
+
+
+
+
+
+
+  <!-- NLP Section -->
+  <div class="w3-row w3-padding-64" id="nlp">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/nlp1.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">Natural Language Processing</h1><br>
+
+      <h5 class="w3-center"><a href="https://github.com/gu-anly502/fall-2022-reddit-big-data-project-project-group-8/blob/master/code/nlp/project_nlp_group8.ipynb">&#128279; The NLP Python Code</a></h5>       
+
+      <p class="w3-large"><b>1. What are the most common words overall or over time?</b>
+      <p class="w3-large w3-text-grey w3-hide-medium">After cleaning and vectorizing the text, the first step to exploring Reddit comments is counting what kind of words appear mostly in dating advice. The table shows the most common words in sorting. It can tell by the first few words, like, think, say, and relationship, that people's advice on dating is to focus on defining the connection and on expressing ideas. "Work" and "Life" also show that dating advice comes with personal aspects.</p>
+    </div>
+  </div>
+  
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/nlp2.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <p class="w3-large"><b>2. What is the distribution of text lengths?</b>
+      <p class="w3-large w3-text-grey w3-hide-medium"> Split the words in posts and count them as the length. Although the text length varies from 0 to 1000, 95% of the data is less than 300. The length from 0 to 300 was selected mainly for visualization. The distribution is not a standard normal distribution. Most length of the posts are around 10. And when the length is over 150, longer length, fewer posts. 
+It can be imagined that Redditors like posts with concise content so that they can give a quick response.</p>
+    </div>
+  </div>
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/nlp3.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <p class="w3-large"><b>3. What are important words according to TF-IDF?</b>
+      <p class="w3-large w3-text-grey w3-hide-medium"> The TF-IDF model quantifies the importance or relevance of string representations in a document among a collection of documents(corpus). The table shows the most important words by TF-IDF. Then 6 topics were selected from keywords such as “relationship”, “friend” and “love”. “Like” is the word with most importance which means users are likely to talk a lot about “how/why/when they like each other” when it comes to “dating” and “relationship”.</p>
+    </div>
+  </div>
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/nlp4_1.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="700" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <p class="w3-large"><b>4. Identify important keywords for reddit data and use regex searches to create dummy variables to identify comments of particular topics.</b>
+      <p class="w3-large w3-text-grey w3-hide-medium"> The table generated on the left shows the statistical scores based on different topics according to business goals. It can be observed that “religion” posts have the lowest influence while “relationship” ones have the highest. The scores of “love” and “relationship” vary the most which means users’ reviews are mixed a lot, posts related to “dating” have relatively stable scores. However, the extracted topics only stand for a small percentage of data, it is hard for us to find keywords that can explain most of the data.</p>
+    </div>
+  </div>
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/nlp5.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="700" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <p class="w3-large"><b>5. Build sentiment models using the sparkNLP framework.</b>
+      <p class="w3-large w3-text-grey w3-hide-medium"> Based on the table which shows the result of sentiment analysis, all emotions have valid value. Negative comments are slightly more than that of positive comments, and least  neutral. It can be concluded that most comments on dating advice have obvious emotional tendencies. Specifically, comments with negative emotion about dating advice are in the majority.</p>
+    </div>
+  </div>
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/nlp6.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="700" height="750">
+   <br><p>  </p>
+   <br><p>  </p>
+   <br><p>  </p>
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/nlp7.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="700" height="750">     
+   <br><p>  </p>
+   <br><p>  </p>
+   <br><p>  </p>
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/nlp8.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="700" height="750">  
+   <br><p>  </p>
+   <br><p>  </p>
+   <br><p>  </p>
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/nlp9.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="400" height="650"> 
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <p class="w3-large"><b>6. Relationship among sentiment, topic and popularity</b>
+      <p class="w3-large w3-text-grey w3-hide-medium"> The pie chart is created to illustrate the numerical proportion of different sentiments. It is divided into slices by sentiment with different colors. In the pie chart, the arc length of each slice is proportional to the quantity of each sentiment  it represents. It clearly shows negative sentiment takes the most percentage compared with positive sentiment.</p>
+   <br><p>  </p>
+   <br><p>  </p>
+   <br><p>  </p>    
+   <br><p>  </p>
+   <br><p>  </p>
+   <br><p>  </p>
+      <p class="w3-large w3-text-grey w3-hide-medium">This box plot is produced to demonstrate the score distribution of each sentiment. Some of “Neutral” scores can attract relatively high popularity, but not as high as “negative” nor “positive” sentiments. The distribution of positive scores is relatively flat beyond 50, but the distribution  of   “Negative”  still  intensifies  beyond 50.  Therefore, there are more comments about dating advice with extremely negative emotion than that of positive emotion as well as of no explicit  emotion.</p>      
+   <br><p>  </p>
+   <br><p>  </p>
+   <br><p>  </p>    
+   <br><p>  </p>
+   <br><p>  </p>
+      <p class="w3-large w3-text-grey w3-hide-medium">The table and bar plot on the left show the composition of emotions of five selected topics. “Love”, and “relationship” have the most word counts as well as the most negative and positive sentiments. The negative emotion of each topic is slightly more than that of positive emotion. This distribution also can fit that of the overall distribution which is mentioned above. </p>  
+
+    </div>
+  </div>
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/nlp10.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="700" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <h5 class="w3-center"><b>NLP Summary</b></h5>
+      <p class="w3-large w3-text-grey w3-hide-medium"> In this section, the analysis mainly answer the following question: <span class="w3-tag w3-light-grey">How are the scores of the posts/comments related to topics and sentiments?</span></p>
+       <p class="w3-large w3-text-grey w3-hide-medium">Among posts about dating advice, those holding neutral sentiment usually had higher popularity, and dating advice with extremely negative sentiment had more comments than positive sentiment as well as comments with no clear sentiment. Suggesting that neutral emotions may be more comforting when people are seeking dating advice.</p> 
+       <p class="w3-large w3-text-grey w3-hide-medium">Posts on the topics of relationship, everyday life and love had the highest ratings, somehow indicating that people are concerned about love relationships in everyday life. </p>
+
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Machinelearning Section -->
+
+    
+  <div class="w3-row w3-padding-64" id="ml">
+
+    <div class="w3-col l6 w3-padding-large">
+      <h1 class="w3-center">Machine Learning</h1><br>
+
+      <h5 class="w3-center"><a href="https://github.com/gu-anly502/fall-2022-reddit-big-data-project-project-group-8/blob/master/code/ml/project_ml_group8.ipynb">&#128279; The ML Python Code</a></h5> 
+
+      <p class="w3-large"><b>1. Data Preparation & Pipeline for Machine Learning</b>
+      <p class="w3-large w3-text-grey w3-hide-medium">In this section, 3 classification models were conducted with different parameters. They are Random Forest, Decision Tree and Linear SVC Models.
+<br>
+<br>A machine learning pipeline has been designed using sparkML, including:
+<br><b>1. StringIndexer:</b> converting all the string fields to numeric indices;
+<br><b>2. OneHotEncoder:</b> converting the index variables that have more than two levels;
+<br><b>3. VectorAssembler:</b> combining all features together, including all the numeric ones and encoded string ones;
+<br><b>4. Model Tuning:</b> for the random forest model, we took the numTrees as 200 and 300; for the linear SVM model, we took "regParam" as 0.1 and 0.01; for our decision tree part, we chose “maxDepth” as 5 and 8 to compare their performances.
+<br>
+<br>The example machine learning pipeline for the decision tree model is shown as follows. It is worth mentioning that this pipeline is an estimator. After fitting into the training data, it becomes a transformer.
+</p>
+    </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <div class="w3-col l6 w3-padding-large">
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/ml1.png" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>
+  </div>
+  
+  
+  
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col l6 w3-padding-large">
+      <p class="w3-large"><b>2. Comments Data Analysis</b>
+      <p class="w3-large w3-text-grey w3-hide-medium">This section aims to solve the Business Question of: <b><span class="w3-tag w3-light-grey">You might have noticed some Reddit posts and replies have small golden icons next to them. These are "gilded," which means someone spent real money to reward the poster with Reddit Gold. So if we want our comments to be profitable or to get more attention, we need to be as "gilded" as possible. This comes to our first business question, Could we predict whether this comment will be rewarded in the future, and for what reason?</span> </b>
+<br>
+<br>
+The accuracy and ROC scores of three different models with respective parameters are shown in the table on the right. The decision tree model with hyperparameter of maxDepth = 5 has highest accuracy and ROC score which means it performs the best. According to the feature importance graph shown below, the top 4 key features are “sentiment”, “length”, “comment_score” as well as “day_of_week”. It really makes sense that reddit users would award the comments as “gilded” if they are positive ones. Besides, whether the comment is long enough or not matters, it is because more detailed and useful information would be included if that’s a long comment. In addition, comments with higher comment scores are more likely to be gilded ones and users have more free time to read through comments for posts and would like to give coins to those comments they agreed with.
+</p>
+    </div>
+<br>
+<br>
+    <div class="w3-col l6 w3-padding-large">
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/ml2.png" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>
+<br>
+<br>
+<br>
+    <div class="w3-col l6 w3-padding-large">
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/ml3.png" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>    
+  </div>
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col l6 w3-padding-large">
+      <p class="w3-large"><b>3. Submission Data Analysis</b>
+      <p class="w3-large w3-text-grey w3-hide-medium">This section aims to solve the Business Question of: <b><span class="w3-tag w3-light-grey">Setting "over_18" when posting a new submission is just a way to protect the site legally by ensuring that they inform you that the content should only be viewed if you're over 18. But what if someone accidently misses that and posts the content that is not suitable for users who are under 18. Such a situation could not only cause legal problems for the site, but also give teenagers the opportunity to access adult content too early. So we want to determine which variables would impact the "over_18" alert and whether we can estimate that this submission may involve content over 18.
+</span> </b>
+<br>
+<br>
+The table and chart on the right side refer to the accuracy of each model we used and the feature importance. The accuracy of the six models regarding the over_18 submissions and features shows that decision tree model with max depth =5 and linear SVC model with regParam=0.01 performs better than others. The ROC shows both two decision tree models perform better than others. To sum up, the decision tree with max depth = 5 model performs the best this prediction. The chart shows the feature importance of the decision tree for submissions. From the charts we can see that the sentiment vector and topic vector are the two most important features to impact whether the submission is over 18 or not.  Based on our understanding, if the sentiment is more negative, the submission might be less likely to be shown to teenagars. And the topics also are vital to decide whether the submission should have extra protection. If the topic is more related to adult activities or violent events, they are less likely to show up among teenagers.
+</p>
+    </div>
+<br>
+<br>
+    <div class="w3-col l6 w3-padding-large">
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/ml4.png" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>
+<br>
+<br>
+<br>
+    <div class="w3-col l6 w3-padding-large">
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/ml5.png" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>    
+  </div>
+
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col l6 w3-padding-large">
+      <h5 class="w3-center"><b>ML Summary</b></h5>
+      <p class="w3-large w3-text-grey w3-hide-medium">In this section, two business goals were solved according to analyzing two datasets.
+      <br>
+      <br>When it comes to predicting whether this comment will be rewarded in the future, <b>Sentiment, Length of the comments, Comment Score as well as the Day of Week</b> have been detected to be the decisive factors. Using these factors to predict whether a review can be rewarded makes sense for both the platform and the user. For users, this can help them improve the quality of their reviews and thus be rewarded. For the platform, they can better rate users and thus maintain a better social environment on the platform.
+      <br>
+      <br>Another Business question is about 'which variables would impact the "over_18" alert and whether we can estimate that this submission may involve content over 18'. The machine learning outcome shows that <b>'Sentiment' and 'Topic'</b> are the most important factors.If the sentiment is more negative, the submission may be less likely to be displayed to teens. The subject matter is also critical in determining whether the content submitted should have additional protections. If topics are related to adult activities or violent events, they are less likely to be presented to teens. This analysis can help Reddit create a better environment for teenagers to use.
+          
+         
+</p>
+    </div>
+    
+<br>
+<br>
+    <div class="w3-col l6 w3-padding-large">
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/ml6.jpg" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>
+  </div>
+
+  <hr>
+
+
+  
+  <!-- Conclusion Section -->
+  <div class="w3-row w3-padding-64" id="conclusion">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <br>
+     <br>
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/con1.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">Conclusion</h1><br>
+      <p class="w3-large w3-text-grey w3-hide-medium">All research analysis for our project is based on Reddit Submissions and Comments from January 2021 to August 2022. We decided on "Dating" as the scope of our project and filtered relative posts according to the Subreddit of the entire two parquet files (about 1TB), which are converted from 8TB of uncompressed text JSON data. Finally, we selected 2,703,384 rows of Submissions and 44,242,410 rows of Comments to continue our following multi-dimensional exploration with Azure Databricks and Spark.</p>
+
+      <p class="w3-large"><b>1. Conclusions for EDA Section</b>
+      <p class="w3-large w3-text-grey w3-hide-medium">We show the changes in Redditor numbers over time, the distribution of post scores, and the quantity relationship between submission and comment through some pictures, which you can review on the previous page. We also produce basic statistics tables on "score," "over_18", "controversiality," and other categories, etc.
+          <br>
+          <br>1. Tinder was Redditors' most discussed dating app, ahead of Bumble, Hinge, and others.
+          <br>2. The distribution of scores is very uneven, and most comments did not call much attention to 0 scores. Several received a vast amount of upvotes and comments, presenting 18905 as a maximal score.
+          <br>3. From the external dating app rating dataset, we found that the average score is only 3 out of 5, and there is still a lot of room to optimize and upgrade the products to achieve higher user satisfaction.
+      </p>
+    </div>
+  </div>
+  
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/con2.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+     <br>
+     <br>
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/con3.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">     
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <p class="w3-large"><b>2. Conclusions for NLP Section</b>
+      <p class="w3-large w3-text-grey w3-hide-medium"> In this part, we apply pipelines to data cleaning standard procedures, like removing stop words, getting stemmer, and lemmatization. Then we find words with the most weight and set them as the keyword or topic of the comments. In the end, we build a sentiment model using the sparkNLP framework to identify comments as "negative," "positive," or "neutral."
+          <br>
+          <br>1. Redditors post comments about dating relative topics that 56% is considered as negative, and negative comments are more likely to get "dislike" minus points.
+          <br>2. Redditors gave the most advice about love, relationship, and daily life in the comments. However, in addition to relationships, other topics are more negative. People are concerned about love relationships.
+
+      </p>
+    </div>
+  </div>
+  
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/con4.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+     <br>
+     <br>
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/con5.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">     
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <p class="w3-large"><b>3. Conclusions for ML Section</b>
+      <p class="w3-large w3-text-grey w3-hide-medium"> There are two business problems we discover in this part. One is which variable influences posts "gilded" so that our comments can be profitable. The other is which factor will impact "over_18" to avoid legal problems. We conducted three models, Random Forest, Decision Tree, and LinearSVC, and compared two different hyperparameter sets for each model via pipeline. Ultimately, we are ordering the feature importance to know which factor will influence gild and over-18.
+          <br>
+          <br>1. Sentiment, Length of the comments, Comment Score, and the Day of Week have been detected to be the decisive factors for gilding.
+          <br>2. 'Sentiment' and 'Topic' are the most important factors for 'over_18' warning.
+
+      </p>
+    </div>
+  </div>  
+  
+   <div class="w3-row w3-padding-64">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/con6.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <p class="w3-large"><b>4. About Future Work</b>
+      <p class="w3-large w3-text-grey w3-hide-medium"> Next, we plan to develop a dating expert "Ask me" system. We can filter out the highest-score comment for each submission as a Q&A record to compose our data set and define the topic as the label. Leveraging the Deep Learning model to predict answers, we let users input any dating questions. Since the data we used to train comes from high-quality highlights, our output could have satisfied advice as long as we tune our deep learning model with the best performance.
+
+      </p>
+    </div>
+  </div>   
+
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-light-grey w3-padding-32">
+
+</footer>
+
+</body>
+</html>
