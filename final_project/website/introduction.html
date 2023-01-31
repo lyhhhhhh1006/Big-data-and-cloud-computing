@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Reddit Analysis - Anly 502 Group Project</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+    <a href="#home" class="w3-bar-item w3-button">Reddit Analysis - Anly 502 Group Project</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#about" class="w3-bar-item w3-button">About</a>
+      <a href="#eda" class="w3-bar-item w3-button">EDA</a>
+      <a href="#nlp" class="w3-bar-item w3-button">NLP</a>
+      <a href="#ml" class="w3-bar-item w3-button">Machine Learning</a>
+      <a href="#conclusion" class="w3-bar-item w3-button">Conclusion</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+  <img class="w3-image" src="https://qinren.georgetown.domains/Reddit-Analysis/image/1.jpg" alt="Hamburger Catering" width="1600" height="800">
+  <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+    <h1 class="w3-large">Group Member:Qinren Zhou, Yihui Liu, Yutong Du, Ziqiu Shao
+                              </h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px">
+
+  <!-- About Section -->
+  <div class="w3-row w3-padding-64" id="about">
+
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/2.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>  
+    <br>     
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/intro11.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750"> 
+    <br>
+    <br>
+    <br>      
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/intro22.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+    <br>
+    <br>
+    <br> 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/intro3.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">Introduction</h1><br>
+      <h5 class="w3-center">About the Project</h5>
+
+      <p class="w3-large w3-text-grey w3-hide-medium">Dating has always been a hot topic in our daily lives, and it has been an irreversible trend that more and more people are using dating apps nowadays. So, what are the determining factors in deciding whether people go on a date or use a dating app? Can we find the answers we want in people's advice about dating? </p>
+
+      <p class="w3-large w3-text-grey w3-hide-medium">This Project aims to use Reddit data to solve problems related to ‘Dating’ by analyzing both text data and numerical data using machine learning and natural language processing methods. We will take both user and platform perspectives, not only to help users better seek 'answers' about dating, but also to try to help the platform find better ways to maintain the environment. </p>
+      
+     <p class="w3-large w3-text-grey w3-hide-medium"> This Project aims to use Reddit data to solve problems related to ‘Dating’ by analyzing both text data and numerical data using machine learning and natural language processing methods. We will take both user and platform perspectives, not only to help users better seek 'answers' about dating, but also to try to help the platform find better ways to maintain the environment. </p>  
+
+      <h5 class="w3-center">10 Business Goals</h5>
+      <p class="w3-large"><li> <span class="w3-tag w3-light-grey"><b>1: What is the most popular dating APP?</b></span></li>
+Use NLP to identify the posts that mentioned one and more than one dating apps. Conduct sentiment analysis of the posts to assign positive or negative values to the dating apps mentioned in posts. Present the findings for the sentiment analysis for the top 3 popular dating apps.
+<li> <span class="w3-tag w3-light-grey"><b>2: What kind of dating/relationship is the most popular nowadays?</b></span></li>
+Utilize NLP to do the topic popularity calculation: Weighting the words with the hotness of the main posts, and the heat of the main post will take into account the following factors like the number of subreddits, score, time of the publication (The longer the release time, the higher the heat decay). Using Wordcloud to show the hottest words among the selected subreddits and extract key words to determine which types of dates are most popular. Age and gender factors can also be considered to categorize the study.
+<li> <span class="w3-tag w3-light-grey"><b>3: What is the sentiment composition of the posts in the subreddit and in each topic?</b></span></li>
+Visualize the pattern of text length of the comment data. Conduct the distribution of the length of text. Present text length of the most comments and the characteristic of reddit.
+<li> <span class="w3-tag w3-light-grey"><b>4: How are the scores of the posts/comments related to topics and sentiments?</b></span></li>
+Use NLP to identify the posts and comments and vectorize the dataset. Create a pipeline for sentiment analysis based on SparkNLP. Plot to demonstrate the difference of the distributions by sentiment and the score.
+<li> <span class="w3-tag w3-light-grey"><b>5: How does people's attention about relationship health change over time?</b></span></li>
+Leverage Time series analysis to help understanding the underlying attention patterns of relationship over time. Using data visualizations, we want to see seasonal trends and year deviation and dig deeper into why these trends occur. When analyzing data over consistent intervals, we try to use time series forecasting to predict the likelihood of future dating events.
+<li> <span class="w3-tag w3-light-grey"><b>6: What is the difference between men's interest about women and women's interest about men?</b></span></li>
+Use NLP to collect and tokenize the submission with the most comment posts in "Ask Man" and "Ask Women" subreddit seperately. Conduct sentiment analysis of the submission to assign positive or negative values to questions redditors asked. Present top 10 positive and negative submission. Make the same process on comment part and compare the difference between men’s aspect and women’s aspect.
+<li> <span class="w3-tag w3-light-grey"><b>7: Which variables will have an impact on the submission score? what is the relationship between score and controversies?</b></span></li>
+Use NLP to transform string variables to numbers and assemble feature vectors. Build up a pipeline to transform all data. Use Linear Regression to predict score with feature selecting and tuning the model.
+<li> <span class="w3-tag w3-light-grey"><b>8: How does the popularity of posts distribute?</b></span></li>
+Visualize the distribution of the scores of posts. Conduct the highest frequency of the posts score. Present the findings of maximum and minimum value.
+<li> <span class="w3-tag w3-light-grey"><b>9: which age group use online dating app the most?</b></span></li>
+Generate the distribution plot for each age group using created_utc which stands for the utc timestamp of the post time of the main post.
+Conduct statistical analysis for respondents from different age groups. Present sorted count for reddit users who have been using dating apps.
+<li> <span class="w3-tag w3-light-grey"><b>10: While talking about dating advices, which are the most frequent words?</b></span></li>
+Utilize NLP for word association calculation to examine the association between words by calculating the probability of simultaneous occurrence of words in subreddit. For example, the most associated word in a dinner date may be the most important suggestion in a dinner date. Can also use Association Rule Mining to calculate the relationship between words.
+          
+         
+    </div>
+  </div>
+  
+  <hr>
+ 
+
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-light-grey w3-padding-32">
+
+</footer>
+
+</body>
+</html>

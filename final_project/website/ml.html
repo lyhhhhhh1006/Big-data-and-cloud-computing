@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Reddit Analysis - Anly 502 Group Project</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+    <a href="#home" class="w3-bar-item w3-button">Reddit Analysis - Anly 502 Group Project</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#about" class="w3-bar-item w3-button">About</a>
+      <a href="#eda" class="w3-bar-item w3-button">EDA</a>
+      <a href="nlp.html" class="w3-bar-item w3-button">NLP</a>
+      <a href="ml.html" class="w3-bar-item w3-button">Machine Learning</a>
+      <a href="#conclusion" class="w3-bar-item w3-button">Conclusion</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+  <img class="w3-image" src="https://qinren.georgetown.domains/Reddit-Analysis/image/1.jpg" alt="Hamburger Catering" width="1600" height="800">
+  <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+    <h1 class="w3-large">Group Member:Qinren Zhou, Yihui Liu, Yutong Du, Ziqiu Shao
+                              </h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px">
+
+
+  <!-- Machinelearning Section -->
+
+    
+  <div class="w3-row w3-padding-64" id="ml">
+
+    <div class="w3-col l6 w3-padding-large">
+      <h1 class="w3-center">Machine Learning</h1><br>
+
+      <h5 class="w3-center"><a href="https://github.com/gu-anly502/fall-2022-reddit-big-data-project-project-group-8/blob/master/code/ml/project_ml_group8.ipynb">&#128279; The ML Python Code</a></h5> 
+
+      <p class="w3-large"><b>1. Data Preparation & Pipeline for Machine Learning</b>
+      <p class="w3-large w3-text-grey w3-hide-medium">In this section, 3 classification models were conducted with different parameters. They are Random Forest, Decision Tree and Linear SVC Models.
+<br>
+<br>A machine learning pipeline has been designed using sparkML, including:
+<br><b>1. StringIndexer:</b> converting all the string fields to numeric indices;
+<br><b>2. OneHotEncoder:</b> converting the index variables that have more than two levels;
+<br><b>3. VectorAssembler:</b> combining all features together, including all the numeric ones and encoded string ones;
+<br><b>4. Model Tuning:</b> for the random forest model, we took the numTrees as 200 and 300; for the linear SVM model, we took "regParam" as 0.1 and 0.01; for our decision tree part, we chose “maxDepth” as 5 and 8 to compare their performances.
+<br>
+<br>The example machine learning pipeline for the decision tree model is shown as follows. It is worth mentioning that this pipeline is an estimator. After fitting into the training data, it becomes a transformer.
+</p>
+    </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <div class="w3-col l6 w3-padding-large">
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/ml1.png" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>
+  </div>
+  
+  
+  
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col l6 w3-padding-large">
+      <p class="w3-large"><b>2. Comments Data Analysis</b>
+      <p class="w3-large w3-text-grey w3-hide-medium">This section aims to solve the Business Question of: <b><span class="w3-tag w3-light-grey">You might have noticed some Reddit posts and replies have small golden icons next to them. These are "gilded," which means someone spent real money to reward the poster with Reddit Gold. So if we want our comments to be profitable or to get more attention, we need to be as "gilded" as possible. This comes to our first business question, Could we predict whether this comment will be rewarded in the future, and for what reason?</span> </b>
+<br>
+<br>
+The accuracy and ROC scores of three different models with respective parameters are shown above in the table. The decision tree model with hyperparameter of maxDepth = 5 has highest accuracy and ROC score which means it performs the best. According to the feature importance graph shown below, the top 4 key features are “sentiment”, “length”, “comment_score” as well as “day_of_week”. It really makes sense that reddit users would award the comments as “gilded” if they are positive ones. Besides, whether the comment is long enough or not matters, it is because more detailed and useful information would be included if that’s a long comment. In addition, comments with higher comment scores are more likely to be gilded ones and users have more free time to read through comments for posts and would like to give coins to those comments they agreed with.
+</p>
+    </div>
+<br>
+<br>
+    <div class="w3-col l6 w3-padding-large">
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/ml2.png" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>
+<br>
+<br>
+<br>
+    <div class="w3-col l6 w3-padding-large">
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/ml3.png" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>    
+  </div>
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col l6 w3-padding-large">
+      <p class="w3-large"><b>3. Submission Data Analysis</b>
+      <p class="w3-large w3-text-grey w3-hide-medium">This section aims to solve the Business Question of: <b><span class="w3-tag w3-light-grey">Setting "over_18" when posting a new submission is just a way to protect the site legally by ensuring that they inform you that the content should only be viewed if you're over 18. But what if someone accidently misses that and posts the content that is not suitable for users who are under 18. Such a situation could not only cause legal problems for the site, but also give teenagers the opportunity to access adult content too early. So we want to determine which variables would impact the "over_18" alert and whether we can estimate that this submission may involve content over 18.
+</span> </b>
+<br>
+<br>
+The following table and chart refers to the accuracy of each model we used and the feature importance. The accuracy of the six models regarding the over_18 submissions and features shows that decision tree model with max depth =5 and linear SVC model with regParam=0.01 performs better than others. The ROC shows both two decision tree models perform better than others. To sum up, the decision tree with max depth = 5 model performs the best this prediction. The chart shows the feature importance of the decision tree for submissions. From the charts we can see that the sentiment vector and topic vector are the two most important features to impact whether the submission is over 18 or not.  Based on our understanding, if the sentiment is more negative, the submission might be less likely to be shown to teenagars. And the topics also are vital to decide whether the submission should have extra protection. If the topic is more related to adult activities or violent events, they are less likely to show up among teenagers.
+</p>
+    </div>
+<br>
+<br>
+    <div class="w3-col l6 w3-padding-large">
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/ml4.png" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>
+<br>
+<br>
+<br>
+    <div class="w3-col l6 w3-padding-large">
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/ml5.png" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>    
+  </div>
+
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col l6 w3-padding-large">
+      <h5 class="w3-center"><b>ML Summary</b></h5>
+      <p class="w3-large w3-text-grey w3-hide-medium">In this section, two business goals were solved according to analyzing two datasets.
+      <br>
+      <br>When it comes to predicting whether this comment will be rewarded in the future, <b>Sentiment, Length of the comments, Comment Score as well as the Day of Week</b> have been detected to be the decisive factors. Using these factors to predict whether a review can be rewarded makes sense for both the platform and the user. For users, this can help them improve the quality of their reviews and thus be rewarded. For the platform, they can better rate users and thus maintain a better social environment on the platform.
+      <br>
+      <br>Another Business question is about 'which variables would impact the "over_18" alert and whether we can estimate that this submission may involve content over 18'. The machine learning outcome shows that <b>'Sentiment' and 'Topic'</b> are the most important factors.If the sentiment is more negative, the submission may be less likely to be displayed to teens. The subject matter is also critical in determining whether the content submitted should have additional protections. If topics are related to adult activities or violent events, they are less likely to be presented to teens. This analysis can help Reddit create a better environment for teenagers to use.
+          
+         
+</p>
+    </div>
+    
+<br>
+<br>
+    <div class="w3-col l6 w3-padding-large">
+      <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/ml6.jpg" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>
+
+
+  </div>
+  <hr>
+
+  
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-light-grey w3-padding-32">
+
+</footer>
+
+</body>
+</html>

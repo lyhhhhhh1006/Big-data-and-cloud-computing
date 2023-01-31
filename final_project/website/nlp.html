@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Reddit Analysis - Anly 502 Group Project</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+    <a href="#home" class="w3-bar-item w3-button">Reddit Analysis - Anly 502 Group Project</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#about" class="w3-bar-item w3-button">About</a>
+      <a href="#eda" class="w3-bar-item w3-button">EDA</a>
+      <a href="#nlp" class="w3-bar-item w3-button">NLP</a>
+      <a href="#ml" class="w3-bar-item w3-button">Machine Learning</a>
+      <a href="#conclusion" class="w3-bar-item w3-button">Conclusion</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+  <img class="w3-image" src="https://qinren.georgetown.domains/Reddit-Analysis/image/1.jpg" alt="Hamburger Catering" width="1600" height="800">
+  <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+    <h1 class="w3-large">Group Member:Qinren Zhou, Yihui Liu, Yutong Du, Ziqiu Shao
+                              </h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px">
+
+
+  <!-- NLP Section -->
+  <div class="w3-row w3-padding-64" id="nlp">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/nlp1.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">Natural Language Processing</h1><br>
+
+      <h5 class="w3-center"><a href="https://github.com/gu-anly502/fall-2022-reddit-big-data-project-project-group-8/blob/master/code/nlp/project_nlp_group8.ipynb">&#128279; The NLP Python code</a></h5>       
+
+      <p class="w3-large"><b>1. What are the most common words overall or over time?</b>
+      <p class="w3-large w3-text-grey w3-hide-medium">After cleaning and vectorizing the text, the first step to exploring Reddit comments is counting what kind of words appear mostly in dating advice. The following table shows the most common words in sorting. It can tell by the first few words, like, think, say, and relationship, that people's advice on dating is to focus on defining the connection and on expressing ideas. "Work" and "Life" also show that dating advice comes with personal aspects.</p>
+    </div>
+  </div>
+  
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/nlp2.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <p class="w3-large"><b>2. What is the distribution of text lengths?</b>
+      <p class="w3-large w3-text-grey w3-hide-medium"> Split the words in posts and count them as the length. Although the text length varies from 0 to 1000, 95% of the data is less than 300. The length from 0 to 300 was selected mainly for visualization. The distribution is not a standard normal distribution. Most length of the posts are around 10. And when the length is over 150, longer length, fewer posts. 
+It can be imagined that Redditors like posts with concise content so that they can give a quick response.</p>
+    </div>
+  </div>
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/nlp3.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <p class="w3-large"><b>3. What are important words according to TF-IDF?</b>
+      <p class="w3-large w3-text-grey w3-hide-medium"> The TF-IDF model quantifies the importance or relevance of string representations in a document among a collection of documents(corpus). The table above shows the most important words by TF-IDF. Then 6 topics were selected from keywords such as “relationship”, “friend” and “love”. “Like” is the word with most importance which means users are likely to talk a lot about “how/why/when they like each other” when it comes to “dating” and “relationship”.</p>
+    </div>
+  </div>
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/nlp4_1.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="700" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <p class="w3-large"><b>4. Identify important keywords for reddit data and use regex searches to create dummy variables to identify comments of particular topics.</b>
+      <p class="w3-large w3-text-grey w3-hide-medium"> The following table generated below shows the statistical scores based on different topics according to business goals. It can be observed that “religion” posts have the lowest influence while “relationship” ones have the highest. The scores of “love” and “relationship” vary the most which means users’ reviews are mixed a lot, posts related to “dating” have relatively stable scores. However, the extracted topics only stand for a small percentage of data, it is hard for us to find keywords that can explain most of the data.</p>
+    </div>
+  </div>
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/nlp5.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="700" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <p class="w3-large"><b>5. Build sentiment models using the sparkNLP framework.</b>
+      <p class="w3-large w3-text-grey w3-hide-medium"> Based on the following table which shows the result of sentiment analysis, all emotions have valid value. Negative comments are slightly more than that of positive comments, and least  neutral. It can be concluded that most comments on dating advice have obvious emotional tendencies. Specifically, comments with negative emotion about dating advice are in the majority.</p>
+    </div>
+  </div>
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/nlp6.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="700" height="750">
+   <br><p>  </p>
+   <br><p>  </p>
+   <br><p>  </p>
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/nlp7.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="700" height="750">     
+   <br><p>  </p>
+   <br><p>  </p>
+   <br><p>  </p>
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/nlp8.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="700" height="750">  
+   <br><p>  </p>
+   <br><p>  </p>
+   <br><p>  </p>
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/nlp9.png" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="400" height="650"> 
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <p class="w3-large"><b>6. Relationship among sentiment, topic and popularity</b>
+      <p class="w3-large w3-text-grey w3-hide-medium"> The  pie chart is created to illustrate the numerical proportion of different sentiments. It is divided into slices by sentiment with different colors. In the pie chart, the arc length of each slice is proportional to the quantity of each sentiment  it represents. It clearly shows negative sentiment takes the most percentage compared with positive sentiment.</p>
+   <br><p>  </p>
+   <br><p>  </p>
+   <br><p>  </p>    
+   <br><p>  </p>
+   <br><p>  </p>
+   <br><p>  </p>
+      <p class="w3-large w3-text-grey w3-hide-medium">This box plot is produced to demonstrate the score distribution of each sentiment. Some of “Neutral” scores can attract relatively high popularity, but not as high as “negative” nor “positive” sentiments. The distribution of positive scores is relatively flat beyond 50, but the distribution  of   “Negative”  still  intensifies  beyond 50.  Therefore, there are more comments about dating advice with extremely negative emotion than that of positive emotion as well as of no explicit  emotion.</p>      
+   <br><p>  </p>
+   <br><p>  </p>
+   <br><p>  </p>    
+   <br><p>  </p>
+   <br><p>  </p>
+      <p class="w3-large w3-text-grey w3-hide-medium">The following table and bar plot show the composition of emotions of five selected topics. “Love”, and “relationship” have the most word counts as well as the most negative and positive sentiments. The negative emotion of each topic is slightly more than that of positive emotion. This distribution also can fit that of the overall distribution which is mentioned above. </p>  
+
+    </div>
+  </div>
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-col m6 w3-padding-large w3-hide-small">
+     <img src="https://qinren.georgetown.domains/Reddit-Analysis/image/nlp10.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="700" height="750">
+    </div>
+
+    <div class="w3-col m6 w3-padding-large">
+      <h5 class="w3-center"><b>NLP Summary</b></h5>
+      <p class="w3-large w3-text-grey w3-hide-medium"> In this section, the analysis mainly answer the following question: <span class="w3-tag w3-light-grey">How are the scores of the posts/comments related to topics and sentiments?</span></p>
+       <p class="w3-large w3-text-grey w3-hide-medium">Among posts about dating advice, those holding neutral sentiment usually had higher popularity, and dating advice with extremely negative sentiment had more comments than positive sentiment as well as comments with no clear sentiment. Suggesting that neutral emotions may be more comforting when people are seeking dating advice.</p> 
+       <p class="w3-large w3-text-grey w3-hide-medium">Posts on the topics of relationship, everyday life and love had the highest ratings, somehow indicating that people are concerned about love relationships in everyday life. </p>
+
+    </div>
+  </div>
+  
+  <hr>
+  
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-light-grey w3-padding-32">
+
+</footer>
+
+</body>
+</html>
